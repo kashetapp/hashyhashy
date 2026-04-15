@@ -21,8 +21,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [lang, setLang] = useState<Language>("ar");
   const [dark, setDark] = useState(true);
+  const [resetKey, setResetKey] = useState(0);
   const t = translations[lang];
   const dir = lang === "ar" ? "rtl" : "ltr";
+
+  const resetApp = () => setResetKey((k) => k + 1);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);

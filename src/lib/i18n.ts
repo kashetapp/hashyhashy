@@ -53,6 +53,7 @@ export const translations = {
     light: "Light",
     dark: "Dark",
     privacyBadge: "🔒 Fully Local Processing",
+    startOver: "Start Over",
   },
 } as const;
 
