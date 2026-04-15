@@ -71,7 +71,10 @@ function Index() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8 px-4"
         >
-          <h1 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2">
+          <h1
+            onClick={resetApp}
+            className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2 cursor-pointer hover:text-primary transition-colors"
+          >
             {t.title}
           </h1>
           <p className="text-muted-foreground text-base">{t.subtitle}</p>

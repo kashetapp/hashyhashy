@@ -26,6 +26,7 @@ export const translations = {
     light: "فاتح",
     dark: "داكن",
     privacyBadge: "🔒 معالجة محلية بالكامل",
+    startOver: "ابدأ من جديد",
   },
   en: {
     title: "Secure Password Hasher",

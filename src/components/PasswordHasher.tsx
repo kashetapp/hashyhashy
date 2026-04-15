@@ -200,6 +200,17 @@ export function PasswordHasher({ lang, onReset }: Props) {
             </motion.div>
           )}
         </AnimatePresence>
+        {/* Start over button */}
+        {(password || result) && (
+          <div className="mt-4 text-center">
+            <button
+              onClick={reset}
+              className="px-5 py-2.5 rounded-xl text-sm font-medium bg-secondary text-secondary-foreground hover:bg-accent border border-border transition-colors"
+            >
+              {t.startOver}
+            </button>
+          </div>
+        )}
       </motion.div>
 
       {/* Security message */}
