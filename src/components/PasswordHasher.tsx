@@ -187,12 +187,12 @@ export function PasswordHasher({ lang, onReset }: Props) {
                 {t.resultLabel}
               </label>
               <div className="relative">
-                <div className="rounded-xl border border-border bg-muted/50 p-4 font-mono text-sm text-foreground break-all select-all" dir="ltr">
+              <div className="rounded-xl border border-border bg-muted/50 p-4 pt-10 font-mono text-sm text-foreground break-all select-all" dir="ltr">
                   {result}
                 </div>
                 <button
                   onClick={handleCopy}
-                  className="absolute top-2 ltr:right-2 rtl:left-2 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors"
+                  className="absolute top-2 right-2 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors z-10"
                 >
                   {copied ? t.copied : t.copyButton}
                 </button>
