@@ -6,6 +6,7 @@ import { hashPassword, type Algorithm } from "@/lib/hash";
 
 interface Props {
   lang: Language;
+  onReset?: () => void;
 }
 
 export function PasswordHasher({ lang }: Props) {
