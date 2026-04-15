@@ -9,7 +9,7 @@ interface Props {
   onReset?: () => void;
 }
 
-export function PasswordHasher({ lang }: Props) {
+export function PasswordHasher({ lang, onReset }: Props) {
   const t = translations[lang];
   const [password, setPassword] = useState("");
   const [algorithm, setAlgorithm] = useState<Algorithm>("bcrypt");
@@ -17,6 +17,15 @@ export function PasswordHasher({ lang }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+
+  const reset = useCallback(() => {
+    setPassword("");
+    setAlgorithm("bcrypt");
+    setResult("");
+    setError("");
+    setCopied(false);
+    onReset?.();
+  }, [onReset]);
 
   const strength = getStrength(password);
   const strengthLabel = getStrengthLabel(strength, lang);
