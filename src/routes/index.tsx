@@ -82,7 +82,7 @@ function Index() {
           </h1>
           <p className="text-muted-foreground text-base">{t.subtitle}</p>
         </motion.div>
-        <PasswordHasher lang={lang} />
+        <PasswordHasher key={resetKey} lang={lang} />
       </main>
 
       {/* Footer */}
