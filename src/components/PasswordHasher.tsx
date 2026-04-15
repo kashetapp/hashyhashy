@@ -6,9 +6,10 @@ import { hashPassword, type Algorithm } from "@/lib/hash";
 
 interface Props {
   lang: Language;
+  onReset?: () => void;
 }
 
-export function PasswordHasher({ lang }: Props) {
+export function PasswordHasher({ lang, onReset }: Props) {
   const t = translations[lang];
   const [password, setPassword] = useState("");
   const [algorithm, setAlgorithm] = useState<Algorithm>("bcrypt");
@@ -16,6 +17,15 @@ export function PasswordHasher({ lang }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+
+  const reset = useCallback(() => {
+    setPassword("");
+    setAlgorithm("bcrypt");
+    setResult("");
+    setError("");
+    setCopied(false);
+    onReset?.();
+  }, [onReset]);
 
   const strength = getStrength(password);
   const strengthLabel = getStrengthLabel(strength, lang);
@@ -190,6 +200,17 @@ export function PasswordHasher({ lang }: Props) {
             </motion.div>
           )}
         </AnimatePresence>
+        {/* Start over button */}
+        {(password || result) && (
+          <div className="mt-4 text-center">
+            <button
+              onClick={reset}
+              className="px-5 py-2.5 rounded-xl text-sm font-medium bg-secondary text-secondary-foreground hover:bg-accent border border-border transition-colors"
+            >
+              {t.startOver}
+            </button>
+          </div>
+        )}
       </motion.div>
 
       {/* Security message */}

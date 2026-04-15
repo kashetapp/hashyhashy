@@ -21,8 +21,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [lang, setLang] = useState<Language>("ar");
   const [dark, setDark] = useState(true);
+  const [resetKey, setResetKey] = useState(0);
   const t = translations[lang];
   const dir = lang === "ar" ? "rtl" : "ltr";
+
+  const resetApp = () => setResetKey((k) => k + 1);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -71,12 +74,15 @@ function Index() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8 px-4"
         >
-          <h1 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2">
+          <h1
+            onClick={resetApp}
+            className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2 cursor-pointer hover:text-primary transition-colors"
+          >
             {t.title}
           </h1>
           <p className="text-muted-foreground text-base">{t.subtitle}</p>
         </motion.div>
-        <PasswordHasher lang={lang} />
+        <PasswordHasher key={resetKey} lang={lang} />
       </main>
 
       {/* Footer */}
