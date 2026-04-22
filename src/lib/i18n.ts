@@ -70,7 +70,14 @@ export function getStrength(password: string): number {
 
 export function getStrengthLabel(strength: number, lang: Language): string {
   const t = translations[lang];
-  const labels = [t.strengthWeak, t.strengthWeak, t.strengthFair, t.strengthGood, t.strengthStrong, t.strengthExcellent];
+  const labels = [
+    t.strengthWeak,
+    t.strengthWeak,
+    t.strengthFair,
+    t.strengthGood,
+    t.strengthStrong,
+    t.strengthExcellent,
+  ];
   return labels[strength] || t.strengthWeak;
 }
 

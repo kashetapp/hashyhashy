@@ -1,7 +1,13 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { translations, getStrength, getStrengthLabel, getStrengthColor, type Language } from "@/lib/i18n";
+import {
+  translations,
+  getStrength,
+  getStrengthLabel,
+  getStrengthColor,
+  type Language,
+} from "@/lib/i18n";
 import { hashPassword, type Algorithm } from "@/lib/hash";
 
 interface Props {
@@ -164,8 +170,19 @@ export function PasswordHasher({ lang, onReset }: Props) {
           {loading ? (
             <span className="flex items-center gap-2">
               <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               {t.hashing}
             </span>
@@ -187,7 +204,10 @@ export function PasswordHasher({ lang, onReset }: Props) {
                 {t.resultLabel}
               </label>
               <div className="relative">
-              <div className="rounded-xl border border-border bg-muted/50 p-4 pt-10 font-mono text-sm text-foreground break-all select-all" dir="ltr">
+                <div
+                  className="rounded-xl border border-border bg-muted/50 p-4 pt-10 font-mono text-sm text-foreground break-all select-all"
+                  dir="ltr"
+                >
                   {result}
                 </div>
                 <button
@@ -222,9 +242,7 @@ export function PasswordHasher({ lang, onReset }: Props) {
       >
         <div className="flex items-start gap-3 text-start">
           <span className="text-xl mt-0.5 shrink-0">🛡️</span>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {t.securityMessage}
-          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{t.securityMessage}</p>
         </div>
       </motion.div>
     </div>
